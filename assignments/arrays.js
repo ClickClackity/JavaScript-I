@@ -114,8 +114,6 @@ carYears.forEach(el => {
     oldCars.push(el);
   };
 });
-
-
 console.log(oldCars.length);
 
 // ==== Challenge 6 ====
