@@ -32,8 +32,12 @@ const internB = {
   name: "Kennan",
   gender: "M",
   speak: function() {
+    return "Hello, my name is " + this.name + "!";
+  },
+// or the better way of doing it.
+  speak1: function() {
     return `Hello, my name is ${this.name}!`;
-  }
+  },
 }
 
 const internC = {
@@ -78,6 +82,8 @@ console.log(internE.gender);
 // Give Kennan the ability to say "Hello, my name is Kennan!" Use the console.log provided as a hint.
 // console.log(kennan.speak());
 console.log(internB.speak());
+console.log(internB.speak1());
+
 
 // Antonietta loves math, give her the ability to multiply two numbers together and return the product. Use the console.log provided as a hint.
 //console.log(antonietta.multiplyNums(3,4));
@@ -91,16 +97,38 @@ console.log(internE.multiplyNums(3, 4));
 // 3. Nest a grandchild object in the child object with properties for name and age.  The name will be Sam and the age will be 30
 // 4. Give each of the objects the ability to speak their names using the this keyword.
 
-const parent = {}
+const parent = {
+  name: this.name,
+  age: this.age,
+  child: {
+    name: this.name,
+    age: this.age,
+    speak: function() {
+      return "Hello, my age is " + this.age + "!";
+    },
+    grandchild: {
+      name: this.name,
+      age: this.age,
+      speak: function() {
+        return "Hello, my name is " + this.name + "!";
+      },
+    },
+  },
+  speak: function() {
+    return "Hello, my name is " + this.name + "!";
+  },
+};
+
 
 // Log the parent object's name
-
+console.log(parent.name = "Susan");
 // Log the child's age
-
+console.log(parent.child.age = 50);
 // Log the name and age of the grandchild
-
+console.log(parent.child.grandchild.name = "Sam");
 // Have the parent speak
-
+console.log(parent.speak());
 // Have the child speak
-
+console.log(parent.child.speak());
 // Have the grandchild speak
+console.log(parent.child.grandchild.speak());
