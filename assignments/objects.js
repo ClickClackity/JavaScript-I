@@ -104,7 +104,7 @@ const parent = {
     name: this.name,
     age: this.age,
     speak: function() {
-      return "Hello, my age is " + this.age + "!";
+      return "Hello, my name is " + this.name + "!";
     },
     grandchild: {
       name: this.name,
@@ -126,9 +126,11 @@ console.log(parent.name = "Susan");
 console.log(parent.child.age = 50);
 // Log the name and age of the grandchild
 console.log(parent.child.grandchild.name = "Sam");
+console.log(parent.child.grandchild.age = 30);
 // Have the parent speak
 console.log(parent.speak());
 // Have the child speak
+parent.child.name = "George";
 console.log(parent.child.speak());
 // Have the grandchild speak
 console.log(parent.child.grandchild.speak());
